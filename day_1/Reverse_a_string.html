@@ -1,0 +1,20 @@
+// Reverse a String
+
+without using any function 
+<script>
+  const given_str = "hello";
+var reversStr =""
+const alpha = given_str.split('')
+console.log(alpha)
+for(i=alpha.length-1; i>=0; i--){
+reversStr+= alpha[i]
+}console.log(reversStr)
+
+</script>
+
+with using function
+<script>
+  const original_str = "hello";
+  const revers_str = original_str.split('').reverse().join('');
+  console.log(revers_str)
+</script>

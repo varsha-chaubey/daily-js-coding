@@ -1,0 +1,48 @@
+Input: "listen", "silent"
+Output: true
+
+An Anagram is a word or phrase formed by rearranging the letters of another, using all original letters exactly once.
+
+🔠 For example: "listen" and "silent" are anagrams
+Because:
+listen → l, i, s, t, e, n
+silent → s, i, l, e, n, t (same letters, different order)
+race-> care, dusty->study
+
+<script>
+let str1= "listen";
+const str2= "silent";
+let arr1 = str1.split('');
+let arr2 = str2.split('');
+
+
+for(i=0; i<=arr1.length; i++){
+    for(j=i; j<=arr1.length; j++){
+        if(arr1[i]>arr1[j]){
+           let  temp1 = arr1[i];
+            arr1[i] = arr1[j];
+            arr1[j] = temp1
+        }
+    }
+}
+for(i=0; i<=arr2.length;i++){
+    for(j=i; j<=arr2.length; j++){
+        if(arr2[i]> arr2[j]){
+            let temp =arr2[i];
+            arr2[i] = arr2[j];
+            arr2[j]= temp;
+        }
+    }
+}
+let isAnagram = arr1.join('') === arr2.join('');
+console.log(isAnagram)
+</script>
+
+with using functions
+
+ <script>
+    const st1= "dusty";
+    const st2= "study";
+    const isAnagramStr = st1.split('').sort().join('')===st2.split('').sort().join('');
+    console.log(isAnagramStr, "function")
+ </script>

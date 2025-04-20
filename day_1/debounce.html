@@ -1,0 +1,56 @@
+<h1>
+    What is a Debounce Function?
+</h1>
+Debouncing ensures that a function is not called again until a certain amount of time has passed without it being called
+again.
+
+🧠 Use Case:
+Useful when dealing with events like:
+
+<ul>
+    <li>
+        Resizing the window</li>
+
+    <li>
+        Keypress in search inputs</li>
+    <liV>
+        Scroll events
+        </li>
+</ul>
+
+<section>
+    function debounce(func, delay) {
+    let timer;
+    return function (...arg) {
+    clearTimeout(timer);
+    timer = setTimeout(
+    () => {
+    func.apply(this, arg);
+    }, delay
+    )
+    }
+    }
+</section>
+
+<input type="text" id="search" placeholder="Type to search..." />
+
+<script>
+    function fetchdata(query) {
+        console.log("Fetching data for:", query);
+    }
+   
+
+    function debounce(func, delay) {
+        let timer;
+        return function (...args) {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                func.apply(this, args)
+            }, delay)
+        }
+    }
+    const debouncedFetch = debounce(fetchData, 500);
+    document.getElementById("search").addEventListener("input", function (e) {
+        debouncedFetch(e.target.value);
+    });
+</script>
