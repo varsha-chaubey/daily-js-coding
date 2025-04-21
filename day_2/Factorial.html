@@ -1,0 +1,37 @@
+Find Factorial of a Number (without recursion)
+Input: 5 → Output: 120
+
+<script>
+    function FindFactorial(num) {
+        let res = 1;
+        for (let i = 1; i <= num; i++) {
+            res *= i;
+        }
+        return res;
+    }
+    console.log(FindFactorial(5))
+</script>
+Base Case:
+When num is 0 or 1, factorial is 1.
+
+Recursive Step:
+num * FindFactorial(num - 1) keeps calling itself until it reaches the base case.
+FindFactorial(5)
+= 5 * FindFactorial(4)
+= 5 * 4 * FindFactorial(3)
+= 5 * 4 * 3 * FindFactorial(2)
+= 5 * 4 * 3 * 2 * FindFactorial(1)
+= 5 * 4 * 3 * 2 * 1
+= 120
+
+<script>
+    function FindFactorial(num) {
+  if (num === 0 || num === 1) {
+    return 1;
+  }
+  return num * FindFactorial(num - 1);
+}
+
+console.log("Factorial is:", FindFactorial(5)); 
+
+</script>

@@ -1,0 +1,37 @@
+Check if a String is a Palindrome
+Input: "madam" → Output: true
+Input: "hello" → Output: false
+
+<h1> with built in functions</h1>
+<script>
+    function PalindromeString(str){
+        let origanalStr = str;
+        let arr = str.split('').reverse().join('')
+        if(arr === origanalStr){
+            return true
+        }else{
+            return false
+        }
+    }
+
+   console.log(PalindromeString('hello'))
+</script>
+
+<h1>Without built in funstions</h1>
+
+<script>
+    function checkPalindromeString(str){
+        let orgStr = str;
+        let reversStr = [];
+        for(let i=orgStr.length-1; i>=0; i--){
+            reversStr+=orgStr[i]
+        }
+        console.log(reversStr)
+        if(reversStr===str){
+            return true
+        }else {
+            return false
+        }
+    }
+    console.log(checkPalindromeString('madam'))
+</script>

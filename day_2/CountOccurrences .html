@@ -1,0 +1,20 @@
+Count Occurrences of Each Character in a String
+Input: "programming" → Output: {p:1, r:2, o:1, g:2, a:1, m:2, i:1, n:1}
+
+<script>
+
+    function countOccurrences(str) {
+        let strObj = {};
+        let arr = str.split('');
+        for (let i = 0; i < arr.length; i++) {
+            if (strObj[arr[i]]) {
+                strObj[arr[i]]++
+            } else {
+                strObj[arr[i]] = 1;
+            }
+        }
+        console.log(strObj)
+        return strObj;
+    }
+    countOccurrences('programming')
+</script>

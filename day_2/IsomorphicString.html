@@ -1,0 +1,50 @@
+Check if Two Strings are Isomorphic
+✅ Problem Statement:
+Two strings s and t are isomorphic if characters in s can be replaced to get t.
+
+🔁 Every occurrence of a character must map to the same character in the other string, and no two characters from s can
+map to the same character in t.
+
+Input: s = "egg", t = "add"
+Output: true
+
+Input: s = "foo", t = "bar"
+Output: false
+
+Input: s = "paper", t = "title"
+Output: true
+
+Logic:
+You need to ensure:
+
+A character in s maps to only one character in t
+
+A character in t is not mapped by more than one character in s
+
+You can use two hash maps (or objects) to track the mappings from s → t and from t → s.
+
+
+
+<script>
+    function isIsomorphic(s, t) {
+        if (s.length !== t.length) return false;
+
+        let mapST = {};
+        let mapTS = {};
+
+        for (let i = 0; i < s.length; i++) {
+            let charS = s[i];
+            let charT = t[i];
+
+            if (mapST[charS] && mapST[charS] !== charT) return false;
+            if (mapTS[charT] && mapTS[charT] !== charS) return false;
+            mapST[charS] = charT;
+            mapTS[charT] = charS;
+        }
+        return true;
+
+    }
+    console.log(isIsomorphic("egg", "add"));    // true
+    console.log(isIsomorphic("foo", "bar"));    // false
+    console.log(isIsomorphic("paper", "title"));//true
+</script>
